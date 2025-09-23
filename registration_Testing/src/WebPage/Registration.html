@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Registration Form</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: system-ui, Arial, sans-serif;
+      background: #f3f6fb;
+      margin: 0;
+      padding: 24px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 700px;
+      background: #ffffff;
+      padding: 22px;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(13, 38, 76, 0.07);
+    }
+
+    h1 { margin: 0 0 12px 0; font-size: 20px; text-align:center; }
+    p.lead { margin: 0 0 18px 0; color: #666; text-align:center; }
+
+    form { display: grid; gap: 12px; grid-template-columns: repeat(2, 1fr); }
+    label { display:block; margin-bottom:6px; font-weight:600; font-size:13px; color:#222; }
+    input, select, textarea {
+      width:100%;
+      padding:10px 12px;
+      border:1px solid #d0d7df;
+      border-radius:8px;
+      font-size:14px;
+      background: #fff;
+    }
+    textarea { min-height: 80px; resize: vertical; }
+
+    .full { grid-column: 1 / -1; }         
+    .row { display:flex; gap:10px; }       
+
+    .actions { display:flex; gap:10px; justify-content:flex-end; grid-column: 1 / -1; }
+    button { padding:10px 14px; border-radius:8px; border:0; cursor:pointer; font-weight:600; }
+    .btn-reset { background:#eef2f6; color:#1f2d3d; }
+    .btn-submit { background:#1d72f3; color:#fff; }
+
+    .terms { display:flex; align-items:center; gap:8px; }
+    .note { font-size:13px; color:#666; margin-top:8px; }
+
+    @media (max-width:700px) {
+      form { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="card" role="main" aria-labelledby="title">
+    <h1 id="title">Create an account</h1>
+    <p class="lead">A clean registration form (HTML5 validation only — no JavaScript)</p>
+
+    <form id="registrationForm" action="#" method="post">
+      <div>
+        <label for="fname">First name *</label>
+        <input id="fname" name="fname" type="text" required autocomplete="given-name" placeholder="First name">
+      </div>
+
+      <div>
+        <label for="lname">Last name *</label>
+        <input id="lname" name="lname" type="text" required autocomplete="family-name" placeholder="Last name">
+      </div>
+
+      <div>
+        <label for="email">Email *</label>
+        <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@example.com">
+      </div>
+
+      <div>
+        <label for="phone">Phone</label>
+        <input id="phone" name="phone" type="tel" pattern="[0-9]{10,15}" placeholder="10–15 digits">
+      </div>
+
+      <div>
+        <label for="username">Username *</label>
+        <input id="username" name="username" type="text" required minlength="3" maxlength="30" placeholder="Choose a username">
+      </div>
+
+      <div>
+        <label for="password">Password *</label>
+        <input id="password" name="password" type="password" required minlength="6" placeholder="At least 6 characters">
+      </div>
+
+      <div>
+        <label for="cpassword">Confirm password *</label>
+        <input id="cpassword" name="cpassword" type="password" required minlength="6" placeholder="Re-type password">
+      </div>
+
+      <div>
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender">
+          <option value="">Prefer not to say</option>
+          <option value="female">Female</option>
+          <option value="male">Male</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="full">
+        <label for="address">Address</label>
+        <textarea id="address" name="address" placeholder="Street, city, state, postal code"></textarea>
+      </div>
+
+      <div class="actions">
+        <button type="reset" class="btn-reset" id="reset">Reset</button>
+        <button type="submit" class="btn-submit" id="submit">Register</button>
+      </div>
+
+      <div class="full note">
+        <strong>Important:</strong> This file uses only HTML & CSS. The server (your backend) must check that passwords match and securely handle the submitted data.
+      </div>
+    </form>
+  </main>
+
+  <script>
+    document.getElementById("registrationForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      if (this.checkValidity()) {
+        let firstname = document.getElementById("fname").value;
+        window.location.href = "Welcome.html?firstname=" + encodeURIComponent(firstname);
+      }
+    });
+  </script>
+</body>
+</html>

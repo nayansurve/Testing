@@ -26,7 +26,7 @@ public class Login_Test {
   {
     WebDriverManager.chromedriver().setup();
     driver=new ChromeDriver();
-    driver.get("http://127.0.0.1:5500/src/WebPages/Login.html?username=&password=&textbox=");
+    driver.get("http://127.0.0.1:5500/mavenWebTesting/src/WebPages/Login.html");
   }
 
   @Test
