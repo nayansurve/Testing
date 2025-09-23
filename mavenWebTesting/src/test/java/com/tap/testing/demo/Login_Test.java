@@ -56,11 +56,11 @@ public class Login_Test {
 
 
     submit.click();
-    try {
-        Thread.sleep(2000);
-    } catch (Exception e) {
-        System.out.println(e);
-    }
+    // try {
+    //     Thread.sleep(2000);
+    // } catch (Exception e) {
+    //     System.out.println(e);
+    // }
 
 
      WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(5));
