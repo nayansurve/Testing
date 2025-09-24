@@ -13,7 +13,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TFLStoreTest {
     private static WebDriver driver;
-    
+   //before the method run 
     @BeforeAll
     static void setup()
     {
@@ -91,6 +91,7 @@ public class TFLStoreTest {
 
 
     }
+   
     @AfterAll
     static void teardown() {
         if (driver != null) {
